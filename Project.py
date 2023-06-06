@@ -11,10 +11,19 @@ with st.echo(code_location='below'):
     data_disorders_world = data_disorders[data_disorders['Entity']=='World'].head(28)
     data_disorders = data_disorders[data_disorders['Entity']!='World']
     
-    st.dataframe (data_disorders)
-    
     countries = data_disorders.Entity.unique()
     
+    col_country, col_disorder = st.columns(2)
+    
+    with col_country:
     option_country = st.selectbox(
-    'Выберите страну',
+    'Выберите страну', 
     countries)
+    )
+    
+    with col_disorder:
+    option_disorder = st.selectbox(
+    'Выберите расстройство', 
+    ('Schizophrenia', 'Bipolar disorder', 'Eating disorders', 'Anxiety disorders', 'Drug use disorders', 'Depression', 'Alcohol use disorders'))
+    )
+    
