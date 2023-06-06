@@ -27,4 +27,4 @@ with st.echo(code_location='below'):
     
     data_disorders_c = data_disorders[data_disorders['Entity']==option_country].head(28)
     st.dataframe(data_disorders_c) 
-    st.line_chart(data_disorders_c['Anxiety_disorders'])
+    st.line_chart(data_disorders_c['Anxiety_disorders'], x=data_disorders_c['Year'])
