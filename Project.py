@@ -11,4 +11,10 @@ with st.echo(code_location='below'):
     data_disorders_world = data_disorders[data_disorders['Entity']=='World'].head(28)
     data_disorders = data_disorders[data_disorders['Entity']!='World']
     
-    st.dataframe (data_disorders_world)
+    st.dataframe (data_disorders)
+    
+    countries = data_disorders.Entity.unique()
+    
+    option_country = st.selectbox(
+    'Выберите страну',
+    countries)
