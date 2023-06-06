@@ -23,8 +23,8 @@ with st.echo(code_location='below'):
     with col_disorder:
         option_disorder = st.selectbox(
         'Выберите расстройство', 
-        ('Schizophrenia', 'Bipolar disorder', 'Eating disorders', 'Anxiety disorders', 'Drug use disorders', 'Depression', 'Alcohol use disorders'))
+        ('Schizophrenia', 'Bipolar_disorder', 'Eating_disorders', 'Anxiety_disorders', 'Drug_use_disorders', 'Depression', 'Alcohol_use_disorders'))
     
     data_disorders_c = data_disorders[data_disorders['Entity']==option_country].head(28)
     st.dataframe(data_disorders_c) 
-    
+    st.line_chart(data_disorders_c['Year'], data_disorders_c['Anxiety_disorders'])
