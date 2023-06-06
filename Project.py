@@ -11,7 +11,7 @@ with st.echo(code_location='below'):
     data_disorders_world = data_disorders[data_disorders['Entity']=='World'].head(28)
     data_disorders = data_disorders[data_disorders['Entity']!='World']
     
-    ## The dinamics of the disorders from 1990 to 2017
+    st.header("The dinamics of the disorders from 1990 to 2017")
     
     col_country, col_disorder = st.columns(2)
     
@@ -32,3 +32,6 @@ with st.echo(code_location='below'):
     #plt.ylabel(option_disorder)
     #plt.plot(data_disorders_c['Year'], data_disorders_c[option_disorder])
     #st.pyplot(gr1)
+    
+    st.header("Comparison of morbidity rates in different countries)
+    st.multiselect("Countries: ", countries)
