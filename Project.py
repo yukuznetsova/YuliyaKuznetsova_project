@@ -27,11 +27,11 @@ with st.echo(code_location='below'):
         ('Schizophrenia', 'Bipolar_disorder', 'Eating_disorders', 'Anxiety_disorders', 'Drug_use_disorders', 'Depression', 'Alcohol_use_disorders'))
     
     data_disorders_c = data_disorders[data_disorders['Entity']==option_country].head(28)
-    #gr1 = plt.figure(figsize=(24, 8))
-    #plt.xlabel("Years")
-    #plt.ylabel(option_disorder)
-    #plt.plot(data_disorders_c['Year'], data_disorders_c[option_disorder])
-    #st.pyplot(gr1)
+    gr1 = plt.figure(figsize=(24, 8))
+    plt.xlabel("Years")
+    plt.ylabel(option_disorder)
+    plt.plot(data_disorders_c['Year'], data_disorders_c[option_disorder])
+    st.pyplot(gr1)
     
     st.header("Comparison of morbidity rates in different countries")
     
@@ -44,9 +44,9 @@ with st.echo(code_location='below'):
     data_disorders_17 = data_disorders_17[data_disorders_17 ['Entity'].isin (list_countries)]
     data_disorders_17_d = data_disorders_17[['Entity', option_disorder1]].head(len(list_countries))
     
-    #gr2 = plt.figure(figsize=(24, 8))
-    #plt.bar(data_disorders_17_d['Entity'], data_disorders_17_d[option_disorder1])
-    #st.pyplot(gr2)
+    gr2 = plt.figure(figsize=(24, 8))
+    plt.bar(data_disorders_17_d['Entity'], data_disorders_17_d[option_disorder1])
+    st.pyplot(gr2)
     
     st.header("The psychological assistance centers in Moscow")
     data_centers = pd.read_csv ('data-605-2999-01-01.csv', delimiter=';')
