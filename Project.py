@@ -1,6 +1,9 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
+import geopandas as gpd
+import json
+from shapely.geometry import Point
 
 with st.echo(code_location='below'):
     data_disorders = pd.read_csv('Mental health Depression disorder Data.csv', delimiter=',', index_col='index')
@@ -41,6 +44,18 @@ with st.echo(code_location='below'):
     data_disorders_17 = data_disorders_17[data_disorders_17 ['Entity'].isin (list_countries)]
     data_disorders_17_d = data_disorders_17[['Entity', option_disorder1]].head(len(list_countries))
     
-    gr2 = plt.figure(figsize=(24, 8))
-    plt.bar(data_disorders_17_d['Entity'], data_disorders_17_d[option_disorder1])
-    st.pyplot(gr2)
+    #gr2 = plt.figure(figsize=(24, 8))
+    #plt.bar(data_disorders_17_d['Entity'], data_disorders_17_d[option_disorder1])
+    #st.pyplot(gr2)
+    
+    st.header("The psychological assistance centers in Moscow")
+    data_centers = pd.read_csv ('data-605-2999-01-01.csv', delimiter=';')
+    data_centers = data_centers[1:]
+    geoData_centers = data_centers['geoData']
+    centers_points = [Point(*json.loads(row)['coordinates']) for row in geoData_centers.values]
+    data_centers['geometry'] = centers_points
+    !pip install folium matplotlib mapclassify
+    geodata_centers = gpd.GeoDataFrame(data_centers, crs="EPSG:4326")
+    geodata_centers.explore()
+    
+    
