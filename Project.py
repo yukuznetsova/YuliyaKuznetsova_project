@@ -1,9 +1,6 @@
 import streamlit as st
 import pandas as pd
-import numpy as np
-import seaborn as sns
 import matplotlib.pyplot as plt
-import altair as alt
 
 with st.echo(code_location='below'):
     data_disorders = pd.read_csv('Mental health Depression disorder Data.csv', delimiter=',', index_col='index')
@@ -43,7 +40,6 @@ with st.echo(code_location='below'):
     data_disorders_17 = data_disorders[data_disorders['Year']=='2017']
     data_disorders_17 = data_disorders_17[data_disorders_17 ['Entity'].isin (list_countries)]
     data_disorders_17_d = data_disorders_17[['Entity', option_disorder1]].head(len(list_countries))
-    st.dataframe(data_disorders_17_d)
     
     gr2 = plt.figure(figsize=(24, 8))
     plt.bar(data_disorders_17_d['Entity'], data_disorders_17_d[option_disorder1])
