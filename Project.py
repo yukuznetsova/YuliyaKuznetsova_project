@@ -45,5 +45,6 @@ with st.echo(code_location='below'):
     data_disorders_17_d = data_disorders_17[['Entity', option_disorder1]].head(len(list_countries))
     st.dataframe(data_disorders_17_d)
     
-    #gr2 = plt.figure(figsize=(24, 8))
-    
+    gr2 = plt.figure(figsize=(24, 8))
+    plt.bar(data_disorders_17_d['Entity'], data_disorders_17_d[option_disorder1])
+    st.pyplot(gr2)
