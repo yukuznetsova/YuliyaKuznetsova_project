@@ -56,8 +56,8 @@ with st.echo(code_location='below'):
     data_centers['geometry'] = centers_points
     #!pip install folium matplotlib mapclassify
     geodata_centers = gpd.GeoDataFrame(data_centers, crs="EPSG:4326")
-    geodata_centers.explore()
-    
+    fig = geodata_centers.explore()
+    st.pyplot(fig)
     
     
   
