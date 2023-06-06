@@ -33,5 +33,5 @@ with st.echo(code_location='below'):
     #plt.plot(data_disorders_c['Year'], data_disorders_c[option_disorder])
     #st.pyplot(gr1)
     
-    st.header("Comparison of morbidity rates in different countries)
+    st.header("Comparison of morbidity rates in different countries")
     st.multiselect("Countries: ", countries)
