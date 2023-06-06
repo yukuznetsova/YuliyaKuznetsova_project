@@ -54,8 +54,8 @@ with st.echo(code_location='below'):
     geoData_centers = data_centers['geoData']
     centers_points = [Point(*json.loads(row)['coordinates']) for row in geoData_centers.values]
     data_centers['geometry'] = centers_points
-    !pip install folium matplotlib mapclassify
+    #!pip install folium matplotlib mapclassify
     geodata_centers = gpd.GeoDataFrame(data_centers, crs="EPSG:4326")
-    geodata_centers.explore()
+    #geodata_centers.explore()
     
     
