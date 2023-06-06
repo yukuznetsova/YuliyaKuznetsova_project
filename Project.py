@@ -25,4 +25,6 @@ with st.echo(code_location='below'):
         'Выберите расстройство', 
         ('Schizophrenia', 'Bipolar disorder', 'Eating disorders', 'Anxiety disorders', 'Drug use disorders', 'Depression', 'Alcohol use disorders'))
     
+    data_disorders_c = data_disorders[data_disorders['Entity']==option_country].head(28)
+    st.dataframe(data_disorders_c) 
     
