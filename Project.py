@@ -34,7 +34,12 @@ with st.echo(code_location='below'):
     #st.pyplot(gr1)
     
     st.header("Comparison of morbidity rates in different countries")
+    
     list_countries = st.multiselect("Countries: ", countries)
     option_disorder1 = st.selectbox(
         'Choose the new disorder', 
         ('Schizophrenia', 'Bipolar_disorder', 'Eating_disorders', 'Anxiety_disorders', 'Drug_use_disorders', 'Depression', 'Alcohol_use_disorders'))
+    
+    data_disorders_17 = data_disorders[data_disorders['Year']=='2017']
+    data_disorders_17_d = data_disorders_17[['Entity', option_disorder1]].copy()
+    st.dataframe(data_disorders_17_d)
