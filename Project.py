@@ -17,15 +17,17 @@ with st.echo(code_location='below'):
     
     with col_country:
         option_country = st.selectbox(
-        'Выберите страну', 
+        'Choose the country', 
         countries)
     
     with col_disorder:
         option_disorder = st.selectbox(
-        'Выберите расстройство', 
+        'Choose the disorder', 
         ('Schizophrenia', 'Bipolar_disorder', 'Eating_disorders', 'Anxiety_disorders', 'Drug_use_disorders', 'Depression', 'Alcohol_use_disorders'))
     
     data_disorders_c = data_disorders[data_disorders['Entity']==option_country].head(28)
     gr1 = plt.figure(figsize=(24, 8))
+    plt.xlabel("Years")
+    plt.ylabel(option_disorder)
     plt.plot(data_disorders_c['Year'], data_disorders_c[option_disorder])
     st.pyplot(gr1)
