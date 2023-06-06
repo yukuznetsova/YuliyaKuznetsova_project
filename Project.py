@@ -26,5 +26,5 @@ with st.echo(code_location='below'):
         ('Schizophrenia', 'Bipolar_disorder', 'Eating_disorders', 'Anxiety_disorders', 'Drug_use_disorders', 'Depression', 'Alcohol_use_disorders'))
     
     data_disorders_c = data_disorders[data_disorders['Entity']==option_country].head(28)
-    #st.dataframe(data_disorders_c) 
-    st.line_chart(data_disorders_c[option_disorder])
+    gr1 = plt.plot(data_disorders_c['Year'], data_disorders_c[option_disorder])
+    
