@@ -1,6 +1,2 @@
-streamlit
-pandas
-matplotlib.pyplot
-geopandas 
-json
-shapely.geometry 
+seaborn
+altair
