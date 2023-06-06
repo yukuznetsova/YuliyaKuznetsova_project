@@ -19,11 +19,10 @@ with st.echo(code_location='below'):
         option_country = st.selectbox(
         'Выберите страну', 
         countries)
-    )
     
     with col_disorder:
         option_disorder = st.selectbox(
         'Выберите расстройство', 
         ('Schizophrenia', 'Bipolar disorder', 'Eating disorders', 'Anxiety disorders', 'Drug use disorders', 'Depression', 'Alcohol use disorders'))
-    )
+    
     
