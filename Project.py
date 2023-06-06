@@ -11,10 +11,13 @@ with st.echo(code_location='below'):
     data_disorders_world = data_disorders[data_disorders['Entity']=='World'].head(28)
     data_disorders = data_disorders[data_disorders['Entity']!='World']
     
-    countries = data_disorders.Entity.unique()
+    """
+    The dinamics of the disorders from 1990 to 2017
+    """
     
     col_country, col_disorder = st.columns(2)
     
+    countries = data_disorders.Entity.unique()
     with col_country:
         option_country = st.selectbox(
         'Choose the country', 
