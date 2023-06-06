@@ -27,4 +27,4 @@ with st.echo(code_location='below'):
     
     data_disorders_c = data_disorders[data_disorders['Entity']==option_country].head(28)
     gr1 = plt.plot(data_disorders_c['Year'], data_disorders_c[option_disorder])
-    
+    st.pyplot(gr1)
