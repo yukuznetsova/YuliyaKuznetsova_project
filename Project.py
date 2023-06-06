@@ -11,9 +11,7 @@ with st.echo(code_location='below'):
     data_disorders_world = data_disorders[data_disorders['Entity']=='World'].head(28)
     data_disorders = data_disorders[data_disorders['Entity']!='World']
     
-    """
-    The dinamics of the disorders from 1990 to 2017
-    """
+    ## The dinamics of the disorders from 1990 to 2017
     
     col_country, col_disorder = st.columns(2)
     
@@ -29,8 +27,8 @@ with st.echo(code_location='below'):
         ('Schizophrenia', 'Bipolar_disorder', 'Eating_disorders', 'Anxiety_disorders', 'Drug_use_disorders', 'Depression', 'Alcohol_use_disorders'))
     
     data_disorders_c = data_disorders[data_disorders['Entity']==option_country].head(28)
-    gr1 = plt.figure(figsize=(24, 8))
-    plt.xlabel("Years")
-    plt.ylabel(option_disorder)
-    plt.plot(data_disorders_c['Year'], data_disorders_c[option_disorder])
-    st.pyplot(gr1)
+    #gr1 = plt.figure(figsize=(24, 8))
+    #plt.xlabel("Years")
+    #plt.ylabel(option_disorder)
+    #plt.plot(data_disorders_c['Year'], data_disorders_c[option_disorder])
+    #st.pyplot(gr1)
