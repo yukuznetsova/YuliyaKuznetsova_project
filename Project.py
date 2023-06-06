@@ -43,7 +43,7 @@ with st.echo(code_location='below'):
     data_disorders_17 = data_disorders[data_disorders['Year']=='2017']
     data_disorders_17 = data_disorders_17[data_disorders_17 ['Entity'].isin (list_countries)]
     data_disorders_17_d = data_disorders_17[['Entity', option_disorder1]].copy()
-    st.dataframe(data_disorders_17_d)
+    st.dataframe(data_disorders_17)
     
     #gr2 = plt.figure(figsize=(24, 8))
     
