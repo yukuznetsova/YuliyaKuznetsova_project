@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import geopandas as gpd
 import json
 from shapely.geometry import Point
+from streamlit_folium import st_folium
 
 with st.echo(code_location='below'):
     data_disorders = pd.read_csv('Mental health Depression disorder Data.csv', delimiter=',', index_col='index')
