@@ -53,9 +53,9 @@ with st.echo(code_location='below'):
     
     st.header("The psychological assistance centers in Moscow") 
     st.text ("Please, wait for the map to load")
-    #Получение данных с использованием API в файле API_centers_points.py. Данные загружены в файл centers_points.csv
-    data_centers = pd.read_csv ('centers_points.csv', index_col = 'Unnamed: 0')
-    #centers_points = gpd.GeoDataFrame(data_centers, crs="EPSG:4326") Почему-то не читается сотлбец geometry
-    #map_centers = st_folium(centers_points.explore(), width = 725)
+    #Получение данных с использованием API в файле API_centers.py. Данные загружены в файл centers_points.geojson
+    data_centers = gpd.read_file('centers_points.geojson')
+    centers_points = gpd.GeoDataFrame(data_centers, geometry = 'geometry', crs="EPSG:4326")
+    map_centers = st_folium(centers_points.explore(), width = 725)
   
 
