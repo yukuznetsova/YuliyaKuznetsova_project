@@ -37,8 +37,8 @@ with st.echo(code_location='below'):
     st.pyplot(gr1)
     
     st.header("Comparison of morbidity rates in different countries")
-    
-    list_countries = st.multiselect("Countries: ", countries)
+   
+    list_countries = st.multiselect("Choose several countries: ", countries)
     option_disorder1 = st.selectbox(
         'Choose the new disorder', 
         ('Schizophrenia', 'Bipolar_disorder', 'Eating_disorders', 'Anxiety_disorders', 'Drug_use_disorders', 'Depression', 'Alcohol_use_disorders'))
@@ -51,16 +51,7 @@ with st.echo(code_location='below'):
     plt.bar(data_disorders_17_d['Entity'], data_disorders_17_d[option_disorder1])
     st.pyplot(gr2)
     
-    st.header("The psychological assistance centers in Moscow")
-    data_centers = pd.read_csv ('data-605-2999-01-01.csv', delimiter=';')
-    data_centers = data_centers[1:]
-    geoData_centers = data_centers['geoData']
-    centers_points = [Point(*json.loads(row)['coordinates']) for row in geoData_centers.values]
-    data_centers['geometry'] = centers_points
-    #!pip install folium matplotlib mapclassify
-    geodata_centers = gpd.GeoDataFrame(data_centers, crs="EPSG:4326")
-    map_centers = st_folium(geodata_centers.explore(), width = 725)
-    
+    st.header("The psychological assistance centers in Moscow")    
     data_centers = requests.get("https://apidata.mos.ru/v1/datasets/605/features?api_key=0c4259c55453af65f9b7052058e0bf28")
     centers = data_centers.json()
     centers_points = gpd.GeoDataFrame.from_features(centers, crs="EPSG:4326")
