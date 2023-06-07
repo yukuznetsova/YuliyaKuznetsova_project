@@ -3,3 +3,5 @@ folium
 matplotlib==3.5.2
 mapclassify
 streamlit-folium
+requests
+geojson
