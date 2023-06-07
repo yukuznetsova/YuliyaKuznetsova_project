@@ -54,7 +54,6 @@ with st.echo(code_location='below'):
     st.header("The psychological assistance centers in Moscow") 
     st.text ("Please, wait for the map to load")
     data_centers = pd.read_csv ('centers_points.csv', index_col = 'Unnamed: 0')
-    st.dataframe(data_centers)
     centers_points = gpd.GeoDataFrame(data_centers, crs="EPSG:4326")
     map_centers = st_folium(centers_points.explore(), width = 725)
   
