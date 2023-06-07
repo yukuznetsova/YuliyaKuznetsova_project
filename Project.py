@@ -57,5 +57,6 @@ with st.echo(code_location='below'):
     data_centers = gpd.read_file('centers_points.geojson')
     centers_points = gpd.GeoDataFrame(data_centers, geometry = 'geometry', crs="EPSG:4326")
     map_centers = st_folium(centers_points.explore(), width = 725)
-  
-
+    
+    
+    
