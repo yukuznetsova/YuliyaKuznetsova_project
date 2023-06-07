@@ -66,3 +66,4 @@ with st.echo(code_location='below'):
     centers_points = gpd.GeoDataFrame.from_features(centers, crs="EPSG:4326")
     map_centers_1 = st_folium(centers_points.explore(), width = 725)
   
+
