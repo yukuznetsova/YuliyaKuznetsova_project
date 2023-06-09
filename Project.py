@@ -12,7 +12,7 @@ with st.echo(code_location='below'):
     info_disorders = pd.read_csv("All_disorders.csv", )
     info_disorders.drop (info_disorders.columns [0], axis= 1, inplace = True)
     info_disorders.drop (info_disorders.columns [0], axis= 1, inplace = True)
-    info_disorders.set_index (info_disorders.columns [0])
+    info_disorders.set_index ("category")
     st.dataframe (info_disorders)
     
     
