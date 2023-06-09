@@ -9,6 +9,13 @@ import requests
 import geojson
 
 with st.echo(code_location='below'):
+    info_disorders = pd.read_csv("All_disorders.csv", )
+    info_disorders.drop (info_disorders.columns [0], axis= 1, inplace = True)
+    info_disorders.drop (info_disorders.columns [0], axis= 1, inplace = True)
+    info_disorders.set_index (info_disorders.columns [0])
+    st.dataframe (info_disorders)
+    
+    
     data_disorders = pd.read_csv('Mental health Depression disorder Data.csv', delimiter=',', index_col='index')
     data_disorders.columns = ['Entity', 'Code', 'Year', 'Schizophrenia', 'Bipolar_disorder', 'Eating_disorders', 'Anxiety_disorders', 'Drug_use_disorders', 'Depression', 'Alcohol_use_disorders']
     data_disorders_world = data_disorders[data_disorders['Entity']=='World'].head(28)
