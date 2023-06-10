@@ -20,7 +20,7 @@ with st.echo(code_location='below'): #не была уверена, нужно �
     info_disorders.drop (info_disorders.columns [0], axis= 1, inplace = True) #удаляю лишние колонки
     info_disorders.drop (info_disorders.columns [0], axis= 1, inplace = True)
     info_disorders.set_index ("category")
-    st.dataframe (info_disorders, hide_index = True) #отображение датафрейма на сайте
+    st.dataframe (info_disorders, width = 800, height = 800, hide_index = True) #отображение датафрейма на сайте
     
     
     data_disorders = pd.read_csv('Mental health Depression disorder Data.csv', delimiter=',', index_col='index') #загружаю датафрейм, взятый с https://www.kaggle.com/datasets/thedevastator/uncover-global-trends-in-mental-health-disorder
