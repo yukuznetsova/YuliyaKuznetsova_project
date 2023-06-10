@@ -9,6 +9,8 @@ import requests
 import geojson
 
 with st.echo(code_location='below'):
+    st.header ("Mental disorders")
+    st.text ("Here is some information about several mental disorders")
     info_disorders = pd.read_csv("All_disorders.csv", )
     info_disorders.drop (info_disorders.columns [0], axis= 1, inplace = True)
     info_disorders.drop (info_disorders.columns [0], axis= 1, inplace = True)
