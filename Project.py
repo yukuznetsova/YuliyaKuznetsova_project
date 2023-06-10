@@ -9,8 +9,10 @@ import requests
 import geojson
 
 with st.echo(code_location='below'):
-    st.header ("Mental disorders")
-    st.text ("The main topic of this project is mental health and mental disorders. Now they still remain being stigmatized and sometimes people use names of mental disorders incorrectly, for instance, as offensive name-calling. It is important for people to learn about this topic.")
+    st.title ("Mental disorders")
+    st.text ("The main topic of this project is mental health and mental disorders.")
+    st.text ("Now they still remain being stigmatized and sometimes people use names of mental disorders incorrectly,")
+    st.text ("for instance, as offensive name-calling. It is important for people to learn more about this topic.")
     st.text ("Here is some information about several mental disorders.")
     info_disorders = pd.read_csv("All_disorders.csv", )
     info_disorders.drop (info_disorders.columns [0], axis= 1, inplace = True)
