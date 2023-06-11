@@ -11,9 +11,10 @@ import seaborn as sns
 
 st.title ("Mental disorders")
 st.text ("The main topic of this project is mental health and mental disorders.")
-st.text ("Now they still remain being stigmatized and sometimes people use names")
-st.text ("of mental disorders incorrectly, for instance, as offensive name-calling.")
-st.text ("It is important for people to learn more about this topic.")
+st.text ("After a long while of research and public discussions they still remain")
+st.text ("stimatized, and sometimes people use names of mental disorders incorrectly,")
+st.text ("for instance, as offensive name-calling. It is important for people to learn")
+st.text ("more about this topic. For example, prevalence, symptoms, causes and treatment.")
 st.divider ()
 st.text ("Here is some information about several mental disorders.")
 info_disorders = pd.read_csv("All_disorders.csv", ) #загружаю датафрейм, который получила в файле Working with selenium
