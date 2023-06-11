@@ -100,7 +100,7 @@ with st.echo(code_location='below'): #не была уверена, нужно �
     
     ### FROM: https://habr.com/ru/articles/468295/
     sns.set_style("white")
-    gr3 = sns.lmplot(x="GDP per capita", y="option_disorder2", data=data_gdp_disorders, 
+    gr3 = sns.lmplot(x="GDP per capita", y=option_disorder2, data=data_gdp_disorders, 
                      height=7, aspect=1.6, robust=True, palette='tab10', 
                      scatter_kws=dict(s=60, linewidths=.7, edgecolors='black'))
     ### END FROM
