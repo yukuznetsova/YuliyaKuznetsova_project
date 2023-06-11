@@ -22,11 +22,6 @@ with st.echo(code_location='below'): #не была уверена, нужно �
     info_disorders.drop (info_disorders.columns [0], axis= 1, inplace = True)
     st.dataframe (info_disorders, hide_index = True) #отображение датафрейма на сайте
     
-    option_disorder0 = st.selectbox( #выбор расстройства для сравнения
-        'Choose one disorder', 
-        ('schizophrenia', 'bipolar_disorder', 'eating_disorders', 'anxiety_disorders', 'drug_use_disorders', 'depression', 'alcohol_use_disorders'))
-    st.dataframe (info_disorders[option_disorder0], hide_index = True)
-    
     data_disorders = pd.read_csv('Mental health Depression disorder Data.csv', delimiter=',', index_col='index') #загружаю датафрейм, взятый с https://www.kaggle.com/datasets/thedevastator/uncover-global-trends-in-mental-health-disorder
     data_disorders.columns = ['Entity', 'Code', 'Year', 'Schizophrenia', 'Bipolar_disorder', 'Eating_disorders', 'Anxiety_disorders', 'Drug_use_disorders', 'Depression', 'Alcohol_use_disorders']
     data_disorders_world = data_disorders[data_disorders['Entity']=='World'].head(28)
