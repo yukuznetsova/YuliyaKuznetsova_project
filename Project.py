@@ -45,6 +45,7 @@ with st.echo(code_location='below'): #не была уверена, нужно �
         ('Schizophrenia', 'Bipolar_disorder', 'Eating_disorders', 'Anxiety_disorders', 'Drug_use_disorders', 'Depression', 'Alcohol_use_disorders')) #названия опций совпадают с названиями столбцов датафрейма
     
     data_disorders_c = data_disorders[data_disorders['Entity']==option_country].head(28) #создаю датафрейм из старого только для одной страны
+    data_disorders_c['Schizophrenia'] = pd.to_numeric(data_disorders_c['Schizophrenia']) #столбец Шизофрении был в текстовом формате
     gr1 = plt.figure(figsize=(24, 8)) #с помощью matplotlib создаю график
     plt.xlabel("Years")
     plt.ylabel(option_disorder)
@@ -67,7 +68,7 @@ with st.echo(code_location='below'): #не была уверена, нужно �
     st.pyplot(gr2) #отображаю полученный график в streamlit
     
     st.header("Dependence betweeen GDP per capita and morbidity rate")
-    
+    st.text("Sometimes there is no dependence")
     data_gdp_1 = pd.read_csv ("GDP_per_capita.csv", sep = ";")
     data_gdp = data_gdp_1[['Country Name', '2017']].copy()
     data_gdp = data_gdp.sort_values(by=['Country Name'])
