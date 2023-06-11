@@ -6,3 +6,4 @@ streamlit-folium
 requests
 geojson
 geographiclib
+seaborn
