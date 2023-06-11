@@ -97,5 +97,4 @@ with st.echo(code_location='below'): #не была уверена, нужно �
     map_centers = st_folium(centers_points.explore(), width = 725) #отображение точек на интерактивной карте с помощью folium
     
     
-    
-    
+   
