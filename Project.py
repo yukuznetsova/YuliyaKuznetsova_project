@@ -20,7 +20,6 @@ with st.echo(code_location='below'): #не была уверена, нужно �
     info_disorders = pd.read_csv("All_disorders.csv", ) #загружаю датафрейм, который получила в файле Working with selenium
     info_disorders.drop (info_disorders.columns [0], axis= 1, inplace = True) #удаляю лишние колонки
     info_disorders.drop (info_disorders.columns [0], axis= 1, inplace = True)
-    info_disorders.set_index ("category")
     st.dataframe (info_disorders, hide_index = True) #отображение датафрейма на сайте
     
     
@@ -45,7 +44,7 @@ with st.echo(code_location='below'): #не была уверена, нужно �
         ('Schizophrenia', 'Bipolar_disorder', 'Eating_disorders', 'Anxiety_disorders', 'Drug_use_disorders', 'Depression', 'Alcohol_use_disorders')) #названия опций совпадают с названиями столбцов датафрейма
     
     data_disorders_c = data_disorders[data_disorders['Entity']==option_country].head(28) #создаю датафрейм из старого только для одной страны
-    data_disorders_c['Schizophrenia'] = pd.to_numeric(data_disorders_c['Schizophrenia']) #столбцы был в текстовом формате
+    data_disorders_c['Schizophrenia'] = pd.to_numeric(data_disorders_c['Schizophrenia']) #три столбца были в текстовом формате
     data_disorders_c['Bipolar_disorder'] = pd.to_numeric(data_disorders_c['Bipolar_disorder'])
     data_disorders_c['Eating_disorders'] = pd.to_numeric(data_disorders_c['Eating_disorders'])
     gr1 = plt.figure(figsize=(24, 8)) #с помощью matplotlib создаю график
