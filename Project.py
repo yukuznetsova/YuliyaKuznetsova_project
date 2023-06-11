@@ -70,7 +70,7 @@ st.pyplot(gr2) #отображаю полученный график в streamli
 st.header("Dependence betweeen GDP per capita and morbidity rate")
 st.text("Some people think that mental disorders exist only in rich countries.")
 st.text("Here you can see that sometimes there is no dependence. Also, the diagnostic")
-st.text("methods in developing countries may be not precise.")
+st.text("methods in developing countries may be imprecise.")
 data_gdp_1 = pd.read_csv ("GDP_per_capita.csv", sep = ";")
 data_gdp = data_gdp_1[['Country Name', '2017']].copy()
 data_gdp = data_gdp.sort_values(by=['Country Name'])
