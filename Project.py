@@ -107,7 +107,15 @@ st.pyplot(gr3)
     
 st.header("The psychological assistance centers in Moscow") 
 st.text ("Территориальный отдел психологической помощи населению в ЦАО")
-st.text ("Please, wait for the map to load")
+st.text ("Территориальный отдел психологической помощи населению в СЗАО")
+st.text ("Территориальный отдел психологической помощи населению в ЗАО")
+st.text ("Территориальный отдел психологической помощи населению в СВАО")
+st.text ("Территориальный отдел психологической помощи населению в ЮАО")
+st.text ("Московская служба психологической помощи населению")
+st.text ("Участковый отдел психологической помощи населения «Щербинка»")
+st.text ("Территориальный отдел психологической помощи населению в САО")
+st.text ("Территориальный отдел психологической помощи населению в ВАО")
+st.caption ("Please, wait for the map to load")
 #Получение данных с использованием API в файле API_centers_points.py. Данные загружены в файл centers_points.geojson
 data_centers = gpd.read_file('centers_points.geojson') #читаю файл
 centers_points = gpd.GeoDataFrame(data_centers, geometry = 'geometry', crs="EPSG:4326") #сохраняю в датафрейм координаты 
