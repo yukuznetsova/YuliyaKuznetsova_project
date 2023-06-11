@@ -24,7 +24,7 @@ with st.echo(code_location='below'): #не была уверена, нужно �
     
     option_disorder0 = st.selectbox( #выбор расстройства для сравнения
         'Choose one disorder', 
-        ('Schizophrenia', 'Bipolar_disorder', 'Eating_disorders', 'Anxiety_disorders', 'Drug_use_disorders', 'Depression', 'Alcohol_use_disorders'))
+        ('schizophrenia', 'bipolar_disorder', 'eating_disorders', 'anxiety_disorders', 'drug_use_disorders', 'depression', 'alcohol_use_disorders'))
     st.dataframe (info_disorders[option_disorder0], hide_index = True)
     
     data_disorders = pd.read_csv('Mental health Depression disorder Data.csv', delimiter=',', index_col='index') #загружаю датафрейм, взятый с https://www.kaggle.com/datasets/thedevastator/uncover-global-trends-in-mental-health-disorder
