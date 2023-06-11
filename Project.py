@@ -68,6 +68,11 @@ with st.echo(code_location='below'): #не была уверена, нужно �
     
     st.header("Dependence betweeen GDP per capita and morbidity rate")
     
+    data_gdp_1 = pd.read_csv ("GDP_per_capita.csv", sep = ";")
+    data_gdp = data_gdp_1[['Country Name', '2017']].copy()
+    data_gdp = data_gdp.sort_values(by=['Country Name'])
+    data_gdp.columns = ['Entity', 'GDP per capita']
+    
     data_disorders_2017 = data_disorders[data_disorders['Year']=='2017']
     data_gdp_disorders = data_disorders_2017.merge(data_gdp[['Entity', 'GDP per capita']])
     data_gdp_disorders = data_gdp_disorders.dropna()
