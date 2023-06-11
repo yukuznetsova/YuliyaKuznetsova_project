@@ -76,12 +76,12 @@ with st.echo(code_location='below'): #не была уверена, нужно �
     data_gdp_disorders['GDP per capita'] = pd.to_numeric(data_gdp_disorders['GDP per capita'])
     data_gdp_disorders['Eating_disorders'] = data_gdp_disorders['Eating_disorders'].replace(',', '.', regex = True)
     data_gdp_disorders['Eating_disorders'] = pd.to_numeric(data_gdp_disorders['Eating_disorders'])
-    ###
+    ### FROM: https://habr.com/ru/articles/468295/
     sns.set_style("white")
     gr3 = sns.lmplot(x="GDP per capita", y="Eating_disorders", data=data_gdp_disorders, 
                      height=7, aspect=1.6, robust=True, palette='tab10', 
                      scatter_kws=dict(s=60, linewidths=.7, edgecolors='black'))
-    ###
+    ### END FROM
     st.pyplot(gr3)
     
     st.header("The psychological assistance centers in Moscow") 
