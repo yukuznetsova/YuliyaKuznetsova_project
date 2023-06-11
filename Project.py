@@ -96,5 +96,4 @@ with st.echo(code_location='below'): #не была уверена, нужно �
     centers_points = gpd.GeoDataFrame(data_centers, geometry = 'geometry', crs="EPSG:4326") #сохраняю в датафрейм координаты 
     map_centers = st_folium(centers_points.explore(), width = 725) #отображение точек на интерактивной карте с помощью folium
     
-    
    
