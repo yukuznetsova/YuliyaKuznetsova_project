@@ -50,7 +50,7 @@ plt.ylabel(option_disorder)
 plt.plot(data_disorders_c['Year'], data_disorders_c[option_disorder])
 st.pyplot(gr1) #отображаю полученный график в streamlit
     
-st.header("Comparison of morbidity rates in different countries in 2017")
+st.header("Comparison of morbidity rates % in different countries in 2017")
    
 list_countries = st.multiselect("Choose several countries: ", countries) #выбор стран для сравнения
 option_disorder1 = st.selectbox( #выбор расстройства для сравнения
@@ -60,7 +60,8 @@ option_disorder1 = st.selectbox( #выбор расстройства для с�
 data_disorders_17 = data_disorders[data_disorders['Year']=='2017'] #датафрейм для 2017 года
 data_disorders_17 = data_disorders_17[data_disorders_17 ['Entity'].isin (list_countries)] #датафрейм для 2017 года и списка стран
 data_disorders_17_d = data_disorders_17[['Entity', option_disorder1]].head(len(list_countries)) #датафрейм для 2017 года, списка стран и выбранного расстройства
-    
+data_disorders_17_d[option_disorder1] = pd.to_numeric(data_disorders_17_d[option_disorder1]) #привожу строковые данные к числовым
+
 gr2 = plt.figure(figsize=(24, 8)) #с помощью matplotlib создаю график
 plt.bar(data_disorders_17_d['Entity'], data_disorders_17_d[option_disorder1])
 st.pyplot(gr2) #отображаю полученный график в streamlit
