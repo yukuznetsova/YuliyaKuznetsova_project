@@ -45,7 +45,9 @@ with st.echo(code_location='below'): #не была уверена, нужно �
         ('Schizophrenia', 'Bipolar_disorder', 'Eating_disorders', 'Anxiety_disorders', 'Drug_use_disorders', 'Depression', 'Alcohol_use_disorders')) #названия опций совпадают с названиями столбцов датафрейма
     
     data_disorders_c = data_disorders[data_disorders['Entity']==option_country].head(28) #создаю датафрейм из старого только для одной страны
-    data_disorders_c['Schizophrenia'] = pd.to_numeric(data_disorders_c['Schizophrenia']) #столбец Шизофрении был в текстовом формате
+    data_disorders_c['Schizophrenia'] = pd.to_numeric(data_disorders_c['Schizophrenia']) #столбцы был в текстовом формате
+    data_disorders_c['Bipolar_disorder'] = pd.to_numeric(data_disorders_c['Bipolar_disorder'])
+    data_disorders_c['Eating_disorders'] = pd.to_numeric(data_disorders_c['Eating_disorders'])
     gr1 = plt.figure(figsize=(24, 8)) #с помощью matplotlib создаю график
     plt.xlabel("Years")
     plt.ylabel(option_disorder)
