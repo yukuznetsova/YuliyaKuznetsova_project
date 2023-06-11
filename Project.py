@@ -28,7 +28,8 @@ data_disorders_world = data_disorders[data_disorders['Entity']=='World'].head(28
 data_disorders = data_disorders[data_disorders['Entity']!='World'] #в датафрейме есть ещё и усредненные данные по миру. они не понадобятся
     
 st.header("The dinamics of the disorders from 1990 to 2017")
-    
+st.text ("Here we need to keep in mind that diagnostic methods were not precise enough")
+st.text ("at the end of the 20th century")
 col_country, col_disorder = st.columns(2) #для удобного выбора страны и расстройства
 countries = data_disorders.Entity.unique() #список всех стран, которые есть в датафрейме
 with col_country:
@@ -52,7 +53,6 @@ plt.plot(data_disorders_c['Year'], data_disorders_c[option_disorder])
 st.pyplot(gr1) #отображаю полученный график в streamlit
     
 st.header("Comparison of morbidity rates % in different countries in 2017")
-   
 list_countries = st.multiselect("Choose several countries: ", countries) #выбор стран для сравнения
 option_disorder1 = st.selectbox( #выбор расстройства для сравнения
     'Choose the new disorder', 
@@ -68,7 +68,8 @@ plt.bar(data_disorders_17_d['Entity'], data_disorders_17_d[option_disorder1])
 st.pyplot(gr2) #отображаю полученный график в streamlit
     
 st.header("Dependence betweeen GDP per capita and morbidity rate")
-st.text("Sometimes there is no dependence")
+st.text("Some people think that mental disorders exist only in rich countries.")
+st.text("Here you can see that sometimes there is no dependence.")
 data_gdp_1 = pd.read_csv ("GDP_per_capita.csv", sep = ";")
 data_gdp = data_gdp_1[['Country Name', '2017']].copy()
 data_gdp = data_gdp.sort_values(by=['Country Name'])
@@ -108,6 +109,7 @@ gr3 = sns.lmplot(x="GDP per capita", y=option_disorder2, data=data_gdp_disorders
 st.pyplot(gr3)
     
 st.header("The psychological assistance centers in Moscow") 
+st.text("Here is the list of the centers in Moscow for citizens who need help")
 st.text ("Территориальный отдел психологической помощи населению в ЦАО")
 st.text ("Территориальный отдел психологической помощи населению в СЗАО")
 st.text ("Территориальный отдел психологической помощи населению в ЗАО")
