@@ -106,6 +106,7 @@ gr3 = sns.lmplot(x="GDP per capita", y=option_disorder2, data=data_gdp_disorders
 st.pyplot(gr3)
     
 st.header("The psychological assistance centers in Moscow") 
+st.text (Территориальный отдел психологической помощи населению в ЦАО)
 st.text ("Please, wait for the map to load")
 #Получение данных с использованием API в файле API_centers_points.py. Данные загружены в файл centers_points.geojson
 data_centers = gpd.read_file('centers_points.geojson') #читаю файл
