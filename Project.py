@@ -76,14 +76,31 @@ with st.echo(code_location='below'): #не была уверена, нужно �
     data_disorders_2017 = data_disorders[data_disorders['Year']=='2017']
     data_gdp_disorders = data_disorders_2017.merge(data_gdp[['Entity', 'GDP per capita']])
     data_gdp_disorders = data_gdp_disorders.dropna()
-    
+    #все данные оказались строками, поэтому для построения графика их нужно перевести в числовой формат
     data_gdp_disorders['GDP per capita'] = data_gdp_disorders['GDP per capita'].replace(',', '.', regex = True)
     data_gdp_disorders['GDP per capita'] = pd.to_numeric(data_gdp_disorders['GDP per capita'])
     data_gdp_disorders['Eating_disorders'] = data_gdp_disorders['Eating_disorders'].replace(',', '.', regex = True)
     data_gdp_disorders['Eating_disorders'] = pd.to_numeric(data_gdp_disorders['Eating_disorders'])
+    data_gdp_disorders['Schizophrenia'] = data_gdp_disorders['Schizophrenia'].replace(',', '.', regex = True)
+    data_gdp_disorders['Schizophrenia'] = pd.to_numeric(data_gdp_disorders['Schizophrenia'])
+    data_gdp_disorders['Bipolar_disorder'] = data_gdp_disorders['Bipolar_disorder'].replace(',', '.', regex = True)
+    data_gdp_disorders['Bipolar_disorder'] = pd.to_numeric(data_gdp_disorders['Bipolar_disorder'])
+    data_gdp_disorders['Anxiety_disorders'] = data_gdp_disorders['Anxiety_disorders'].replace(',', '.', regex = True)
+    data_gdp_disorders['Anxiety_disorders'] = pd.to_numeric(data_gdp_disorders['Anxiety_disorders'])
+    data_gdp_disorders['Drug_use_disorders'] = data_gdp_disorders['Drug_use_disorders'].replace(',', '.', regex = True)
+    data_gdp_disorders['Drug_use_disorders'] = pd.to_numeric(data_gdp_disorders['Drug_use_disorders'])
+    data_gdp_disorders['Depression'] = data_gdp_disorders['Depression'].replace(',', '.', regex = True)
+    data_gdp_disorders['Depression'] = pd.to_numeric(data_gdp_disorders['Depression'])
+    data_gdp_disorders['Alcohol_use_disorders'] = data_gdp_disorders['Alcohol_use_disorders'].replace(',', '.', regex = True)
+    data_gdp_disorders['Alcohol_use_disorders'] = pd.to_numeric(data_gdp_disorders['Alcohol_use_disorders'])
+    
+    option_disorder2 = st.selectbox( #выбор расстройства для построения зависимости
+        'Choose the new disorder again', 
+        ('Schizophrenia', 'Bipolar_disorder', 'Eating_disorders', 'Anxiety_disorders', 'Drug_use_disorders', 'Depression', 'Alcohol_use_disorders'))
+    
     ### FROM: https://habr.com/ru/articles/468295/
     sns.set_style("white")
-    gr3 = sns.lmplot(x="GDP per capita", y="Eating_disorders", data=data_gdp_disorders, 
+    gr3 = sns.lmplot(x="GDP per capita", y="option_disorder2", data=data_gdp_disorders, 
                      height=7, aspect=1.6, robust=True, palette='tab10', 
                      scatter_kws=dict(s=60, linewidths=.7, edgecolors='black'))
     ### END FROM
